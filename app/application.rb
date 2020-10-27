@@ -4,11 +4,13 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
- 
       item_name = req.path.split("/items/").last 
-      if @@items.include?("item_name")
       
+      if @@items.include?("item_name")
         item = @@items.find{|i| i.name == item_name}
+      else
+        resp.status = 400
+      end 
       
       resp.write item.price
       
