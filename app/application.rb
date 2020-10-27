@@ -8,6 +8,9 @@ class Application
       item_name = req.path.split("/items/").last 
       
       resp.write item.price
+      
+    else
+      resp.rack = 404
     end
     resp.finish
   end
