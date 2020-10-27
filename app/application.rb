@@ -7,6 +7,7 @@ class Application
  
       item_name = req.path.split("/items/").last 
       
+      
       resp.write item.price
       
     else
